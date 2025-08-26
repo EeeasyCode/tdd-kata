@@ -7,22 +7,25 @@ export class BowlingGame {
 
   score() {
     let totalScore = 0;
+    let i = 0;
 
-    for (let i = 0; i < 20; i++) {
+    for (let frame = 0; frame < 10; frame++) {
+      // 스트라이크
       if (this.scoreBoard[i] == 10) {
-        totalScore += 10 + this.scoreBoard[i] + this.scoreBoard[i + 1];
+        totalScore += 10 + this.scoreBoard[i + 1] + this.scoreBoard[i + 2];
+        i += 1;
+        continue;
       }
-    }
-
-    for (let i = 1; i < this.scoreBoard.length; i += 2) {
-      if (this.scoreBoard[i - 1] == 10) continue;
-
-      if (this.scoreBoard[i] + this.scoreBoard[i - 1] == 10) {
-        totalScore += 10 + this.scoreBoard[i + 1];
+      // 스페어 투구
+      if (this.scoreBoard[i] + this.scoreBoard[i + 1] == 10) {
+        totalScore += 10 + this.scoreBoard[i + 2];
+        i += 2;
         continue;
       }
 
-      totalScore += this.scoreBoard[i] + this.scoreBoard[i - 1];
+      // 일반 투구
+      totalScore += this.scoreBoard[i] + this.scoreBoard[i + 1];
+      i += 2;
     }
 
     return totalScore;
