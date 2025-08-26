@@ -45,4 +45,21 @@ describe("Bowling Game", () => {
 
     expect(score).toBe(46);
   });
+
+  it("step 4 - 스트라이크가 나온 경우, 다음 두번의 투구 점수를 보너스로 받는다", () => {
+    const game = new BowlingGame();
+
+    // 19번 투구 (스트라이크를 쳤기 때문)
+    game.roll(10);
+    game.roll(4);
+    game.roll(5);
+
+    for (let i = 0; i < 16; i++) {
+      game.roll(1);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(44);
+  });
 });

@@ -4,18 +4,5 @@
 
   "editor.inlineSuggest.enabled": false,
 
-  "editor.parameterHints.enabled": false,
-
-  "editor.suggest.showSnippets": false,
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.tabCompletion": "off",
-
-  "[typescript]": {
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.inlineSuggest.enabled": false
-  },
-  "[javascript]": {
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.inlineSuggest.enabled": false
-  }
+  "editor.parameterHints.enabled": false
 }
