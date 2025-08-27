@@ -96,4 +96,20 @@ describe("Bowling Game", () => {
 
     expect(score).toBe(300);
   });
+
+  it("10번째 프레임에서 스트라이크 후 일반 투구", () => {
+    const game = new BowlingGame();
+
+    for (let i = 0; i < 9; i++) {
+      // 스트라이크 (각각 1번씩만 투구)
+      game.roll(10);
+    }
+
+    // 10번째 프레임: 스트라이크 + 일반 투구 2번
+    game.roll(10);
+    game.roll(3);
+    game.roll(4);
+
+    expect(game.score()).toBe(280);
+  });
 });
