@@ -79,4 +79,21 @@ describe("Bowling Game", () => {
 
     expect(score).toBe(37);
   });
+
+  it("step 5 - 퍼펙트 게임; 모든 프레임이 스트라이크 인 경우", () => {
+    // 10 프레임에는 스트라이크를 치면, 보너스 투구를 1회 받음
+
+    const game = new BowlingGame();
+
+    for (let i = 0; i < 10; i++) {
+      game.roll(10);
+    }
+
+    game.roll(10);
+    game.roll(10);
+
+    const score = game.score();
+
+    expect(score).toBe(300);
+  });
 });

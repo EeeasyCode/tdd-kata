@@ -10,6 +10,10 @@ export class BowlingGame {
     let i = 0;
 
     for (let frame = 0; frame < 10; frame++) {
+      // 10프레임 보너스 투구
+      if (frame == 9 && this.scoreBoard[18] == 10) {
+        totalScore += this.scoreBoard[19] + this.scoreBoard[20];
+      }
       // 스트라이크
       if (this.scoreBoard[i] == 10) {
         totalScore += 10 + this.scoreBoard[i + 1] + this.scoreBoard[i + 2];
