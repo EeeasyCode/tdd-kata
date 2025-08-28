@@ -1,0 +1,115 @@
+//"20번 공을 굴렸는데 다 빗나갔어(0개 쓰러뜨림). 점수는? 0점이어야지!"
+
+import { BowlingGame } from "../src/bowling-game";
+
+describe("Bowling Game", () => {
+  it("step 1 - 볼링공을 20번 굴렸는데 전부 빗나간 경우, 점수는 0점이어야 한다.", () => {
+    const game = new BowlingGame();
+
+    for (let index = 0; index < 20; index++) {
+      game.roll(0);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(0);
+  });
+
+  it("step 2 - 볼링공을 20번 굴려서 1개씩만 넘긴 경우, 점수는 20점이어야 한다.", () => {
+    const game = new BowlingGame();
+
+    for (let index = 0; index < 20; index++) {
+      game.roll(1);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(20);
+  });
+
+  it("step 3 - 스페어가 나온 경우, 해당 프레임은 10점 + 다음 첫 투구 점수를 보너스로 받는다.", () => {
+    const game = new BowlingGame();
+
+    game.roll(1);
+    game.roll(5);
+    game.roll(3);
+    game.roll(7);
+    game.roll(5);
+    game.roll(5);
+
+    for (let i = 0; i < 14; i++) {
+      game.roll(1);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(46);
+  });
+
+  it("step 4 - 스트라이크가 나온 경우, 다음 두번의 투구 점수를 보너스로 받는다", () => {
+    const game = new BowlingGame();
+
+    // 19번 투구 (스트라이크를 쳤기 때문)
+    game.roll(10);
+    game.roll(4);
+    game.roll(5);
+
+    for (let i = 0; i < 16; i++) {
+      game.roll(1);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(44);
+  });
+
+  it("step 4 - 스트라이크가 나온 경우, 다음 두번의 투구 점수를 보너스로 받는다 2", () => {
+    const game = new BowlingGame();
+
+    // 19번 투구 (스트라이크를 쳤기 때문)
+    game.roll(4);
+    game.roll(5);
+    game.roll(10);
+
+    for (let i = 0; i < 16; i++) {
+      game.roll(1);
+    }
+
+    const score = game.score();
+
+    expect(score).toBe(37);
+  });
+
+  it("step 5 - 퍼펙트 게임; 모든 프레임이 스트라이크 인 경우", () => {
+    // 10 프레임에는 스트라이크를 치면, 보너스 투구를 1회 받음
+
+    const game = new BowlingGame();
+
+    for (let i = 0; i < 10; i++) {
+      game.roll(10);
+    }
+
+    game.roll(10);
+    game.roll(10);
+
+    const score = game.score();
+
+    expect(score).toBe(300);
+  });
+
+  it("10번째 프레임에서 스트라이크 후 일반 투구", () => {
+    const game = new BowlingGame();
+
+    for (let i = 0; i < 9; i++) {
+      // 스트라이크 (각각 1번씩만 투구)
+      game.roll(10);
+    }
+
+    // 10번째 프레임: 스트라이크 + 일반 투구 2번
+    game.roll(10);
+    game.roll(3);
+    game.roll(4);
+
+    expect(game.score()).toBe(280);
+  });
+});

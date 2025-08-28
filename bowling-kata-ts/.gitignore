@@ -1,0 +1,133 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+junit.xml
+
+# TypeScript
+*.tsbuildinfo
+dist/
+build/
+out/
+*.js
+*.js.map
+*.d.ts
+# 테스트 파일은 .js 제외
+!jest.config.js
+!*.spec.js
+!*.test.js
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IDE - IntelliJ/WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Others
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Documentation
+docs/
+*.md.backup
+
+# Backup files
+*.backup
+*.bak
+*.swp
+*~
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Jest
+jest_html_report/
+test-report/
